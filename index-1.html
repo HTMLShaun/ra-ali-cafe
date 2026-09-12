@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ra Ali Café — Brewed with Love, San Jose del Monte</title>
+<meta name="description" content="Ra Ali Café — a cozy neighborhood coffee shop in Pleasant Hills Subd, San Jose del Monte, Bulacan. Coffee, rice meals, pasta, croffles, and more, brewed with love.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #ECE3D0;
+    --cream-soft: #F5EFE2;
+    --ink: #241811;
+    --ink-soft: #4A3B2E;
+    --espresso: #2A1D14;
+    --espresso-2: #38281B;
+    --cinnamon: #A85A2A;
+    --cinnamon-dark: #8B481F;
+    --gold: #C99A3E;
+    --line: rgba(36,24,17,0.14);
+    --line-dark: rgba(236,227,208,0.16);
+    --radius: 4px;
+    --max: 1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+  .accent-script{font-family:'Caveat', cursive; font-weight:600;}
+
+  /* visible focus */
+  a:focus-visible, button:focus-visible{outline:3px solid var(--cinnamon); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(236,227,208,0.92);
+    backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; padding-top:12px; padding-bottom:12px;}
+  .nav-brand{display:flex; align-items:center; gap:10px; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.2rem; text-decoration:none; color:var(--ink); letter-spacing:-0.01em;}
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0; font-size:0.95rem; font-weight:500;}
+  .nav-links li{margin-right:28px;}
+  .nav-links li:last-child{margin-right:0;}
+  .nav-links a{text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px;}
+  .nav-links a:hover{border-bottom-color:var(--cinnamon);}
+  .nav-cta{
+    background:var(--cinnamon); color:#fff; text-decoration:none;
+    padding:9px 18px; border-radius:var(--radius); font-weight:600; font-size:0.9rem;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--cinnamon-dark);}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 0 56px;}
+  .hero .wrap{display:flex; gap:56px; align-items:center;}
+  .hero-copy{flex:1 1 480px; min-width:0;}
+  .hero-logo{width:min(360px, 100%);}
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.88rem; color:var(--ink-soft); margin-bottom:18px;
+  }
+  .hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#4E8A46;display:inline-block;}
+  .hero h1{font-size:clamp(2.2rem, 4.2vw, 3.4rem); margin-bottom:20px;}
+  .hero p.lede{font-size:1.15rem; color:var(--ink-soft); max-width:46ch; margin-bottom:28px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:32px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:var(--radius);
+    font-weight:600; font-size:0.98rem; text-decoration:none;
+    border:1px solid transparent; cursor:pointer;
+  }
+  .btn-primary{background:var(--cinnamon); color:#fff;}
+  .btn-primary:hover{background:var(--cinnamon-dark);}
+  .btn-outline{border-color:var(--ink); color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--cream);}
+  .hero-meta{display:flex; gap:32px; flex-wrap:wrap; font-size:0.88rem; color:var(--ink-soft); border-top:1px solid var(--line); padding-top:22px;}
+  .hero-meta > div{flex:0 0 auto; min-width:150px; margin-right:32px;}
+  .hero-meta > div:last-child{margin-right:0;}
+  .hero-meta strong{display:block; color:var(--ink); font-family:'Bricolage Grotesque',sans-serif; font-size:1.15rem; margin-bottom:2px;}
+
+  .hero-art{
+    flex:1 1 400px; min-width:0;
+    background:var(--cream-soft); border:1px solid var(--line); border-radius:var(--radius);
+    padding:44px 36px; text-align:center;
+  }
+  .hero-art img{margin:0 auto;}
+  .hero-art .badge{
+    margin-top:22px; font-family:'Caveat', cursive; font-weight:600; font-size:1.4rem; color:var(--cinnamon-dark);
+    transform:rotate(-2deg);
+  }
+
+  @media (max-width:860px){
+    .hero .wrap{flex-direction:column; gap:36px;}
+    .hero-art{order:-1; padding:28px 20px; flex-basis:auto; width:100%;}
+    .hero-copy{flex-basis:auto; width:100%;}
+  }
+
+  /* ---------- STORY STRIP ---------- */
+  .story{background:var(--espresso); color:var(--cream); padding:56px 0;}
+  .story .wrap{display:flex; gap:40px; align-items:flex-start;}
+  .story .wrap > h2{flex:1 1 220px;}
+  .story .wrap > div{flex:2 1 480px; min-width:0;}
+  .story h2{font-size:1.7rem; color:var(--cream);}
+  .story p{color:rgba(236,227,208,0.86); font-size:1.05rem; max-width:60ch;}
+  .story-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .story-tags span{
+    border:1px solid var(--line-dark); border-radius:999px; padding:6px 14px; font-size:0.82rem; color:var(--gold);
+  }
+  @media (max-width:720px){ .story .wrap{flex-direction:column;} }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:72px 0;}
+  .section-head{max-width:56ch; margin-bottom:40px;}
+  .section-head h2{font-size:clamp(1.8rem, 3vw, 2.4rem); margin-bottom:12px;}
+  .section-head p{color:var(--ink-soft); font-size:1.05rem;}
+
+  /* ---------- MENU ---------- */
+  .menu-tabs{
+    display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; margin-bottom:36px;
+    scrollbar-width:thin;
+  }
+  .menu-tab{
+    flex:0 0 auto; background:transparent; border:1px solid var(--line);
+    padding:10px 18px; border-radius:999px; font-family:'Work Sans',sans-serif;
+    font-weight:600; font-size:0.9rem; color:var(--ink-soft); cursor:pointer;
+  }
+  .menu-tab.active{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+
+  .menu-panel{display:none;}
+  .menu-panel.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+  .menu-group{margin-bottom:38px;}
+  .menu-group:last-child{margin-bottom:0;}
+  .menu-group__title{
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.2rem;
+    padding-bottom:10px; margin-bottom:14px; border-bottom:2px solid var(--ink);
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  }
+  .menu-group__title .sizes{font-family:'Work Sans',sans-serif; font-weight:600; font-size:0.78rem; color:var(--ink-soft); white-space:nowrap;}
+
+  .price-row{
+    display:flex; align-items:baseline; gap:14px;
+    padding:11px 0; border-bottom:1px solid var(--line);
+  }
+  .price-row:last-child{border-bottom:none;}
+  .price-row__name{flex:1 1 auto; min-width:0; font-weight:600; font-size:0.98rem;}
+  .price-row__desc{display:block; font-weight:400; font-size:0.84rem; color:var(--ink-soft); margin-top:2px;}
+  .price-row__price{flex:0 0 56px; text-align:right; font-weight:600; font-variant-numeric:tabular-nums; color:var(--cinnamon-dark);}
+  .price-row__price.single{flex:0 0 auto; margin-left:auto;}
+
+  .item-row{
+    display:flex; justify-content:space-between; gap:18px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+  }
+  .item-row:last-child{border-bottom:none;}
+  .item-row__name{font-weight:600; font-size:1rem;}
+  .item-row__desc{display:block; font-weight:400; font-size:0.87rem; color:var(--ink-soft); margin-top:3px; max-width:46ch;}
+  .item-row__price{font-weight:600; color:var(--cinnamon-dark); white-space:nowrap;}
+
+  .addons-note{
+    margin-top:8px; font-size:0.88rem; color:var(--ink-soft); background:var(--cream-soft);
+    border:1px solid var(--line); border-radius:var(--radius); padding:16px 18px;
+  }
+  .addons-note strong{color:var(--ink);}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--espresso); color:var(--cream);}
+  .reviews .section-head h2{color:var(--cream);}
+  .reviews .section-head p{color:rgba(236,227,208,0.8);}
+  .rating-badge{
+    display:inline-flex; align-items:center; gap:10px; margin-bottom:28px;
+    font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:1.3rem; color:var(--gold);
+  }
+  .rating-badge .stars{letter-spacing:2px;}
+  .rating-badge small{font-family:'Work Sans',sans-serif; font-weight:500; font-size:0.85rem; color:rgba(236,227,208,0.75);}
+
+  .review-grid{display:flex; flex-wrap:wrap; gap:20px;}
+  .review-card{flex:1 1 280px; min-width:0;}
+  .review-card{
+    background:var(--espresso-2); border:1px solid var(--line-dark); border-radius:var(--radius);
+    padding:24px; display:flex; flex-direction:column; gap:14px;
+  }
+  .review-card .stars{color:var(--gold); letter-spacing:2px; font-size:0.9rem;}
+  .review-card p{font-size:0.95rem; color:rgba(236,227,208,0.92); margin:0;}
+  .review-card footer{font-size:0.82rem; color:rgba(236,227,208,0.6); margin-top:auto;}
+  @media (max-width:860px){ .review-card{flex-basis:100%;} }
+
+  .reviews-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .reviews-cta .btn-outline{border-color:var(--line-dark); color:var(--cream);}
+  .reviews-cta .btn-outline:hover{background:var(--cream); color:var(--espresso);}
+
+  /* ---------- VISIT ---------- */
+  .visit .wrap{display:block;}
+  .visit-details{max-width:640px;}
+  .visit-details dl{font-size:0.98rem; margin:0 0 28px;}
+  .visit-details .dl-row{display:flex; gap:20px; padding:5px 0;}
+  .visit-details dt{flex:0 0 90px; color:var(--ink-soft); font-weight:600; margin:0;}
+  .visit-details dd{margin:0; flex:1 1 auto;}
+  .hours-table{width:100%; border-collapse:collapse; font-size:0.95rem; margin-bottom:8px;}
+  .hours-table td{padding:6px 0; border-bottom:1px solid var(--line);}
+  .hours-table td:last-child{text-align:right; font-weight:600;}
+
+  /* ---------- FOOTER ---------- */
+  footer.site-footer{
+    background:var(--ink); color:rgba(236,227,208,0.75); padding:32px 0; font-size:0.85rem;
+  }
+  footer.site-footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; align-items:center;}
+  footer.site-footer a{color:var(--cream); text-decoration:none;}
+  footer.site-footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-brand">ra ali café</a>
+    <ul class="nav-links">
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <a class="nav-cta" href="https://www.google.com/maps/place/Ra+Ali+Caf%C3%A9,+Pleasant+Hills+Subd,+Blk+20+Lot+13+San+Lorenzo+Ruiz+St.,+SJDM,+Bulacan/data=!4m2!3m1!1s0x3397a500269988f1:0xb4fd698a6c151665!18m1!1e1" target="_blank" rel="noopener">Get directions</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-eyebrow"><span class="dot"></span> Open now · San Lorenzo Ruiz St., SJDM</div>
+      <h1>A neighborhood coffee shop, brewed with love.</h1>
+      <p class="lede">Ra Ali Café is a cozy corner in Pleasant Hills, San Jose del Monte — good coffee, real food, and a place to slow down. Riders, students, and regulars all find a seat here.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#menu">View the menu</a>
+        <a class="btn btn-outline" href="https://www.google.com/maps/place/Ra+Ali+Caf%C3%A9,+Pleasant+Hills+Subd,+Blk+20+Lot+13+San+Lorenzo+Ruiz+St.,+SJDM,+Bulacan/data=!4m2!3m1!1s0x3397a500269988f1:0xb4fd698a6c151665!18m1!1e1" target="_blank" rel="noopener">Get directions</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>5.0 ★</strong> from 25 Google reviews</div>
+        <div><strong>11am – 12mn</strong> Fri, Sat, Sun</div>
+        <div><strong>11am – 11pm</strong> Mon – Thu</div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img class="hero-logo" src="data:image/jpeg;base64,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p56eennp56eennp56eennp56eennp56eennp56een//aAAoCAgADAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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" alt="Ra Ali Café — Brewed with Love">
+      <div class="badge">the bikers' favorite pit stop</div>
+    </div>
+  </div>
+</header>
+
+<section class="story">
+  <div class="wrap">
+    <h2>Our story</h2>
+    <div>
+      <p>Ra Ali Café started with a simple idea: a cup of coffee should feel like it was made for you. Every drink is pulled and mixed to order, and every rice meal comes out of the kitchen the way you'd cook it at home — a little extra care, a little extra garlic rice. It's why regulars keep coming back, and why cyclists have made us their favorite rest stop after a long ride.</p>
+      <div class="story-tags">
+        <span>Espresso bar</span>
+        <span>All-day rice meals</span>
+        <span>Homemade croffles</span>
+        <span>Bike-friendly parking</span>
+        <span>Study &amp; hangout spot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The menu</h2>
+      <p>From your morning americano to a late-night carbonara — here's everything on offer. Prices in ₱.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+      <button class="menu-tab active" data-tab="coffee">Coffee</button>
+      <button class="menu-tab" data-tab="meals">Rice Meals &amp; Ala Carte</button>
+      <button class="menu-tab" data-tab="pasta">Pasta &amp; Sandwiches</button>
+      <button class="menu-tab" data-tab="sweets">Croffles &amp; Desserts</button>
+      <button class="menu-tab" data-tab="addons">Add-ons</button>
+    </div>
+
+    <!-- COFFEE -->
+    <div class="menu-panel active" data-panel="coffee">
+
+      <div class="menu-group">
+        <div class="menu-group__title">Hot Coffee <span class="sizes">Classic 8oz · Supreme 12oz</span></div>
+        <div class="price-row"><div class="price-row__name">Americano</div><div class="price-row__price">100</div><div class="price-row__price">120</div></div>
+        <div class="price-row"><div class="price-row__name">Cappuccino</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Café Latté</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Dark Mocha</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+        <div class="price-row"><div class="price-row__name">Dirty Matcha Latte</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+        <div class="price-row"><div class="price-row__name">Spanish Latté</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+        <div class="price-row"><div class="price-row__name">Caramel Latté</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+        <div class="price-row"><div class="price-row__name">Salted Caramel</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Iced Coffee <span class="sizes">Classic 16oz · Supreme 22oz</span></div>
+        <div class="price-row"><div class="price-row__name">Café Americano</div><div class="price-row__price">100</div><div class="price-row__price">120</div></div>
+        <div class="price-row"><div class="price-row__name">Cappuccino</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Café Latté</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Butterscotch Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Dark Mocha Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">White Mocha Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Hazelnut Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Dirty Matcha Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Spanish Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Salted Caramel Latté</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Caramel Latté Macchiato</div><div class="price-row__price">145</div><div class="price-row__price">165</div></div>
+        <div class="price-row"><div class="price-row__name">Strawberry Matcha Latté</div><div class="price-row__price">160</div><div class="price-row__price">180</div></div>
+        <div class="price-row"><div class="price-row__name">Tiramisu Latté</div><div class="price-row__price single">200</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Iced Milk-Based <span class="sizes">Classic 16oz · Supreme 22oz</span></div>
+        <div class="price-row"><div class="price-row__name">Milk Hazelnut</div><div class="price-row__price">130</div><div class="price-row__price">150</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Chocolate</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Oreo</div><div class="price-row__price">140</div><div class="price-row__price">155</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Matcha</div><div class="price-row__price">145</div><div class="price-row__price">160</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Strawberry</div><div class="price-row__price">150</div><div class="price-row__price">170</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Choco Oreo</div><div class="price-row__price">150</div><div class="price-row__price">170</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Strawberry Matcha</div><div class="price-row__price">150</div><div class="price-row__price">170</div></div>
+        <div class="price-row"><div class="price-row__name">Milk Strawberry Choco</div><div class="price-row__price">150</div><div class="price-row__price">170</div></div>
+        <div class="price-row"><div class="price-row__name">Matchamissu Latté</div><div class="price-row__price single">220</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Frappé <span class="sizes">Classic 16oz · Supreme 22oz</span></div>
+        <div class="price-row"><div class="price-row__name">Choco Chip Frappé</div><div class="price-row__price">170</div><div class="price-row__price">190</div></div>
+        <div class="price-row"><div class="price-row__name">Strawberry Frappé</div><div class="price-row__price">170</div><div class="price-row__price">190</div></div>
+        <div class="price-row"><div class="price-row__name">Oreo Frappé</div><div class="price-row__price">170</div><div class="price-row__price">190</div></div>
+        <div class="price-row"><div class="price-row__name">Matcha Frappé</div><div class="price-row__price">170</div><div class="price-row__price">190</div></div>
+        <div class="price-row"><div class="price-row__name">Caramel Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+        <div class="price-row"><div class="price-row__name">Salted Caramel Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+        <div class="price-row"><div class="price-row__name">Dark Mocha Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+        <div class="price-row"><div class="price-row__name">Dirty Matcha Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+        <div class="price-row"><div class="price-row__name">Butterscotch Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+        <div class="price-row"><div class="price-row__name">White Mocha Frappé</div><div class="price-row__price">170</div><div class="price-row__price">195</div></div>
+      </div>
+    </div>
+
+    <!-- MEALS -->
+    <div class="menu-panel" data-panel="meals">
+      <div class="menu-group">
+        <div class="menu-group__title">Rice Meals</div>
+        <div class="item-row"><div><div class="item-row__name">Beef Tapa</div><span class="item-row__desc">Stir-fried beef tapa, egg, and garlic rice with mixed vegetables. Spiced vinegar or ketchup on the side.</span></div><div class="item-row__price">₱180</div></div>
+        <div class="item-row"><div><div class="item-row__name">Hungarian Sausage</div><span class="item-row__desc">Spiced Hungarian sausage, egg, and garlic rice with mixed vegetables and banana ketchup.</span></div><div class="item-row__price">₱180</div></div>
+        <div class="item-row"><div><div class="item-row__name">Cheesy Bacon</div><span class="item-row__desc">Thinly cut bacon, egg, and garlic rice with mixed vegetables and homemade cheese sauce.</span></div><div class="item-row__price">₱180</div></div>
+        <div class="item-row"><div><div class="item-row__name">Corned Beef</div><span class="item-row__desc">Flakey, saucy corned beef with egg and garlic rice, mixed vegetables on the side.</span></div><div class="item-row__price">₱180</div></div>
+        <div class="item-row"><div><div class="item-row__name">Chicken Katsu</div><span class="item-row__desc">Crispy seasoned chicken fillet, egg, and garlic rice with mixed vegetables and teriyaki sauce.</span></div><div class="item-row__price">₱190</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Ala Carte</div>
+        <div class="item-row"><div><div class="item-row__name">Chicken Skin</div><span class="item-row__desc">Golden, crunchy chicken skin in a bucket, paired with spiced vinegar dip.</span></div><div class="item-row__price">₱140</div></div>
+        <div class="item-row"><div><div class="item-row__name">Chicken Poppers</div><span class="item-row__desc">Crispy bite-sized chicken poppers with a choice of garlic mayo or sweet &amp; sour dip.</span></div><div class="item-row__price">₱140</div></div>
+      </div>
+    </div>
+
+    <!-- PASTA & SANDWICHES -->
+    <div class="menu-panel" data-panel="pasta">
+      <div class="menu-group">
+        <div class="menu-group__title">Pasta</div>
+        <div class="item-row"><div><div class="item-row__name">Premium Lasagna</div><span class="item-row__desc">Layers of mouthwatering, creamy beef pasta, served with a slice of garlic bread.</span></div><div class="item-row__price">₱150</div></div>
+        <div class="item-row"><div><div class="item-row__name">Carbonara</div><span class="item-row__desc">Filipino-style carbonara enriched with creamy sauce, bacon and ham, served with garlic bread.</span></div><div class="item-row__price">₱150</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Sandwiches &amp; Burgers</div>
+        <div class="item-row"><div><div class="item-row__name">Ham Sandwich</div><span class="item-row__desc">Triple-decker sandwich with ham, egg, cheese, veggies and dressing.</span></div><div class="item-row__price">₱150</div></div>
+        <div class="item-row"><div><div class="item-row__name">Tuna Sandwich</div><span class="item-row__desc">Triple-decker sandwich with homemade tuna, egg, cheese and veggies.</span></div><div class="item-row__price">₱150</div></div>
+        <div class="item-row"><div><div class="item-row__name">Chicken Katsu Burger</div><span class="item-row__desc">Crispy golden chicken katsu fillet with fresh lettuce and savory sauce in a toasted bun.</span></div><div class="item-row__price">₱190</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Fries</div>
+        <div class="item-row"><div><div class="item-row__name">Ra Ali Fries</div><span class="item-row__desc">Sour cream, barbecue, or cheese.</span></div><div class="item-row__price">₱100</div></div>
+        <div class="item-row"><div><div class="item-row__name">Zesty Fries</div><span class="item-row__desc">Zesty-coated fries served with tomato ketchup on the side.</span></div><div class="item-row__price">₱120</div></div>
+      </div>
+    </div>
+
+    <!-- SWEETS -->
+    <div class="menu-panel" data-panel="sweets">
+      <div class="menu-group">
+        <div class="menu-group__title">Ra Ali Croffles</div>
+        <div class="item-row"><div><div class="item-row__name">Caramel Croffle</div><span class="item-row__desc">Buttery croffle drizzled with caramel sauce.</span></div><div class="item-row__price">₱110</div></div>
+        <div class="item-row"><div><div class="item-row__name">Matcha Croffle</div><span class="item-row__desc">Buttery croffle and whipped cream stuffed with pure matcha powder.</span></div><div class="item-row__price">₱110</div></div>
+        <div class="item-row"><div><div class="item-row__name">Chocolate Croffle</div><span class="item-row__desc">Buttery croffle drizzled with chocolate sauce.</span></div><div class="item-row__price">₱110</div></div>
+        <div class="item-row"><div><div class="item-row__name">Cookies &amp; Cream</div><span class="item-row__desc">Croffle with whipped cream, chocolate sauce, and crushed Oreos.</span></div><div class="item-row__price">₱130</div></div>
+        <div class="item-row"><div><div class="item-row__name">Caramel Biscoff</div><span class="item-row__desc">Croffle with whipped cream, caramel sauce, and crushed Biscoff.</span></div><div class="item-row__price">₱140</div></div>
+        <div class="item-row"><div><div class="item-row__name">Nutella Alcapone</div><span class="item-row__desc">Croffle with whipped cream, Nutella, and sliced almonds.</span></div><div class="item-row__price">₱140</div></div>
+      </div>
+
+      <div class="menu-group">
+        <div class="menu-group__title">Tiramisu Cake</div>
+        <div class="item-row"><div><div class="item-row__name">Classic Tiramisu</div><span class="item-row__desc">Espresso-soaked ladyfingers, rich cream, and a dusting of cocoa powder.</span></div><div class="item-row__price">₱130</div></div>
+        <div class="item-row"><div><div class="item-row__name">Matchamissu Cake</div><span class="item-row__desc">Soft matcha-soaked ladyfingers and rich cream, dusted with matcha powder.</span></div><div class="item-row__price">₱150</div></div>
+        <div class="item-row"><div><div class="item-row__name">Biscoff Tiramisu</div><span class="item-row__desc">Espresso-soaked ladyfingers and rich cream mixed with Biscoff sauce and cookies.</span></div><div class="item-row__price">₱180</div></div>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="menu-panel" data-panel="addons">
+      <div class="menu-group">
+        <div class="menu-group__title">Food Add-ons</div>
+        <div class="item-row"><div class="item-row__name">Extra Garlic Rice</div><div class="item-row__price">₱45</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Plain Rice</div><div class="item-row__price">₱35</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Egg</div><div class="item-row__price">₱30</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Garlic Bread</div><div class="item-row__price">₱30</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Veggies</div><div class="item-row__price">₱15</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Dipping Sauce</div><div class="item-row__price">₱15</div></div>
+        <div class="item-row"><div class="item-row__name">Take-out Box</div><div class="item-row__price">₱10</div></div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group__title">Drink Add-ons</div>
+        <div class="item-row"><div class="item-row__name">Sub Oatmilk</div><div class="item-row__price">₱40</div></div>
+        <div class="item-row"><div class="item-row__name">Sea Salt Cream</div><div class="item-row__price">₱30</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Espresso Shot</div><div class="item-row__price">₱40</div></div>
+        <div class="item-row"><div class="item-row__name">Extra Syrup / Sauce</div><div class="item-row__price">₱15</div></div>
+      </div>
+      <div class="addons-note"><strong>Note:</strong> prices and availability may change — always confirm with staff for the latest menu.</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What people are saying</h2>
+      <p>Ra Ali Café holds a perfect rating on Google — here's some of what regulars keep coming back for.</p>
+    </div>
+    <div class="rating-badge"><span class="stars">★★★★★</span> 5.0 <small>· 25 Google reviews</small></div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>A cozy, relaxing spot with genuinely great coffee and food — you can tell care goes into every cup. Perfect for studying or just settling in for a while.</p>
+        <footer>Google review</footer>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>The go-to stop after a long bike ride. Plenty of room to park and unwind, hearty food, and coffee strong enough to recharge for the ride home.</p>
+        <footer>Google review · noted by cyclists</footer>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>A hidden gem in Bulacan with a modern, cozy ambiance. The drinks and food are consistently good, and the staff are warm and attentive every visit.</p>
+        <footer>Google review</footer>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a class="btn btn-primary" href="https://www.google.com/maps/place/Ra+Ali+Caf%C3%A9,+Pleasant+Hills+Subd,+Blk+20+Lot+13+San+Lorenzo+Ruiz+St.,+SJDM,+Bulacan/data=!4m2!3m1!1s0x3397a500269988f1:0xb4fd698a6c151665!18m1!1e1" target="_blank" rel="noopener">Read all reviews</a>
+      <a class="btn btn-outline" href="https://www.google.com/maps/place/Ra+Ali+Caf%C3%A9,+Pleasant+Hills+Subd,+Blk+20+Lot+13+San+Lorenzo+Ruiz+St.,+SJDM,+Bulacan/data=!4m2!3m1!1s0x3397a500269988f1:0xb4fd698a6c151665!18m1!1e1" target="_blank" rel="noopener">Leave a review</a>
+    </div>
+  </div>
+</section>
+
+<section class="section visit" id="visit">
+  <div class="wrap">
+    <div class="visit-details">
+      <div class="section-head">
+        <h2>Visit us</h2>
+        <p>Drop by any day of the week — we're easy to find in Pleasant Hills.</p>
+      </div>
+      <dl>
+        <div class="dl-row"><dt>Address</dt><dd>Blk 20 Lot 13, San Lorenzo Ruiz St., Pleasant Hills Subd., San Jose del Monte, Bulacan</dd></div>
+        <div class="dl-row"><dt>Phone</dt><dd><a href="tel:+639150635727">+63 915 063 5727</a></dd></div>
+      </dl>
+      <table class="hours-table">
+        <tr><td>Monday – Thursday</td><td>11:00 AM – 11:00 PM</td></tr>
+        <tr><td>Friday – Sunday</td><td>11:00 AM – 12:00 AM</td></tr>
+      </table>
+      <a class="btn btn-primary" style="margin-top:24px;" href="https://www.google.com/maps/place/Ra+Ali+Caf%C3%A9,+Pleasant+Hills+Subd,+Blk+20+Lot+13+San+Lorenzo+Ruiz+St.,+SJDM,+Bulacan/data=!4m2!3m1!1s0x3397a500269988f1:0xb4fd698a6c151665!18m1!1e1" target="_blank" rel="noopener">Get directions on Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Ra Ali Café. Brewed with love.</span>
+    <a href="tel:+639150635727">+63 915 063 5727</a>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.menu-tab');
+  const panels = document.querySelectorAll('.menu-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.menu-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
